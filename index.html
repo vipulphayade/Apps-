@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-top"></div>
+  <div class="ambient ambient-bottom"></div>
+
+  <main class="app-shell">
+    <section class="calculator-card">
+      <header class="card-topbar">
+        <div>
+          <p class="eyebrow">Glass Calculator</p>
+          <h1>Signal</h1>
+        </div>
+        <button class="glass-button history-toggle" id="historyToggleButton" type="button" aria-expanded="false" aria-controls="historyDrawer">
+          History
+        </button>
+      </header>
+
+      <section class="display-shell">
+        <label class="sr-only" for="expressionInput">Expression</label>
+        <textarea
+          id="expressionInput"
+          class="expression-input"
+          rows="3"
+          spellcheck="false"
+          placeholder="Type a calculation or save a variable like rate = 12.5"
+        ></textarea>
+        <div class="display-meta">
+          <span id="resultMeta">Ready for your next calculation.</span>
+          <button class="mini-action" id="clearInputButton" type="button">Clear</button>
+        </div>
+        <div class="result-value" id="resultValue">0</div>
+      </section>
+
+      <section class="memory-strip">
+        <div class="memory-header">
+          <div>
+            <p class="eyebrow">Memory</p>
+            <h2>Saved Variables</h2>
+          </div>
+          <button class="glass-button subtle-button" id="clearVariablesButton" type="button">Reset</button>
+        </div>
+
+        <form class="variable-form" id="variableForm">
+          <input id="variableNameInput" class="glass-input" type="text" placeholder="name">
+          <input id="variableValueInput" class="glass-input" type="text" placeholder="value">
+          <button class="glass-button" id="saveVariableButton" type="button">Use Result</button>
+          <button class="glass-button strong-button" type="submit">Store</button>
+        </form>
+
+        <div class="variables-list" id="variablesList"></div>
+      </section>
+
+      <section class="chip-row" id="functionChips"></section>
+
+      <section class="keypad" id="keypad"></section>
+    </section>
+
+    <aside class="history-drawer" id="historyDrawer" aria-hidden="true">
+      <div class="history-header">
+        <div>
+          <p class="eyebrow">Recent</p>
+          <h2>History</h2>
+        </div>
+        <div class="history-actions">
+          <button class="glass-button subtle-button" id="clearHistoryButton" type="button">Clear</button>
+          <button class="glass-button" id="closeHistoryButton" type="button">Close</button>
+        </div>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
